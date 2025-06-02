@@ -1,0 +1,31 @@
+GNS3 Lab: Hub with 3 PCs and Wireshark Capture
+
+Add a Hub and 3 VPCs; connect each PC to the Hub.
+
+Assign IPs on each PC:
+
+PC1: ip 10.0.0.1/24, save
+
+PC2: ip 10.0.0.2/24, save
+
+PC3: ip 10.0.0.3/24, save
+
+Start Wireshark capture on the Hub-PC1 link.
+
+From PC1, ping PC2:
+ping 10.0.0.2
+
+Observe ARP requests and replies, plus ICMP packets in Wireshark.
+
+Delete PC3.
+
+Add a Cloud, connect it to the Hub.
+
+On VM terminal, run:
+ifconfig
+(note Cloud interface name)
+
+Open Wireshark on the VM, select Cloud interface.
+
+From PC1, ping PC2 again.
+Observe broadcasts on VM Wireshark.

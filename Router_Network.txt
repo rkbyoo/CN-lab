@@ -1,0 +1,52 @@
+GNS3 Lab: Routing Between Two Networks Using a Router
+
+Objective:
+Enable communication between two PCs on different networks (10.0.0.0/8 and 11.0.0.0/8) using a router.
+
+Steps:
+
+Delete the switch from the GNS3 topology.
+
+Add a router and connect:
+
+FastEthernet0/0 to PC1
+
+FastEthernet0/1 to PC2
+
+Start the router and open its console.
+Wait for the prompt to appear.
+
+Enter privileged mode:
+enable
+
+Enter global configuration mode:
+configure terminal
+
+Configure FastEthernet0/0 (connected to PC1):
+interface FastEthernet0/0
+ip address 10.0.0.254 255.0.0.0
+no shutdown
+
+Configure FastEthernet0/1 (connected to PC2):
+interface FastEthernet0/1
+ip address 11.0.0.254 255.0.0.0
+no shutdown
+exit
+
+Exit configuration mode:
+exit
+
+On PC1, open console and run:
+ip 10.0.0.1/8 10.0.0.254
+save
+
+On PC2, open console and run:
+ip 11.0.0.1/8 11.0.0.254
+save
+
+Test connectivity:
+From PC1: ping 11.0.0.1
+From PC2: ping 10.0.0.1
+
+To view the ARP table on any PC:
+arp

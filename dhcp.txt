@@ -1,0 +1,32 @@
+GNS3 Lab: Router DHCP Setup with VPC
+
+Place a Router and a VPC; connect via Ethernet.
+
+Start the Router, open console, and run:
+
+configure terminal
+interface FastEthernet0/0
+ip address 10.0.0.1 255.255.255.0
+no shutdown
+exit
+ip dhcp excluded-address 10.0.0.1 10.0.0.10
+ip dhcp pool testdhcp
+default-router 10.0.0.1
+network 10.0.0.0 255.255.255.0
+dns-server 10.0.0.2
+lease 1 10 15
+domain-name home.net
+end
+write
+show ip dhcp pool
+
+Start the VPC, open console, run:
+ip dhcp -d
+show ip
+
+Turn off VPC, start Wireshark on Router’s DHCP interface.
+
+Turn on VPC, run again:
+ip dhcp -d
+
+Observe DHCP DORA process in Wireshark; after IP assignment, ARP broadcast checks for IP conflicts.
