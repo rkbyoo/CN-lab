@@ -1,9 +1,22 @@
 ciscoL2 switch and VLAN
 
-connect all 6vpc and the 2 switches 
+connect all 6vpc and the 2 switches:
+Switch 1 Connections:
+Ethernet 0/0 → PC1 (VLAN 10, access)
+Ethernet 0/1 → PC2 (VLAN 10, access)
+Ethernet 0/2 → PC3 (VLAN 20, access)
+Ethernet 0/3 → PC4 (VLAN 20, access)
+Ethernet 3/3 → Switch 2 (trunk, VLAN 10,20 allowed)
+Switch 2 Connections:
+Ethernet 0/0 → PC5 (VLAN 10, access)
+Ethernet 0/1 → PC6 (VLAN 20, access)
+Ethernet 0/2 → Switch 1 (trunk, VLAN 10,20 allowed)
 
 generate the key in terminal : python2 keygen.py
-paste it in : ./iourc file 
+paste it in : ./iourc file (its a hidden file so go to home directory and search for /iourc and u will find the file) 
+
+
+configure the ciscoL2 switches in terminal using these commands:
 
 show vlan brief
 configure terminal
@@ -29,3 +42,6 @@ no shutdown
 end
 
 similary do it for another switch 
+
+
+test it and u will notice u can share the data/packets between the Same Vlan ids (i.e. Vlan 10 and Vlan 20)
