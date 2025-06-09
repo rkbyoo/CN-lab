@@ -1,12 +1,12 @@
 # 🧠 Computer Networks Lab – JEC
 
-This repository contains all lab work done for the **Computer Networks Lab** as per the JEC syllabus. It includes socket programming in C and Python, and GNS3 simulations of Layer 2 & Layer 3 networking.
+This repository contains all lab work done for the **Computer Networks Lab** as per the JEC syllabus(exam oriented). It includes socket programming in C, and GNS3 simulations of Layer 2 & Layer 3 networking.
 
 ---
 
 ## 📁 Lab Contents
-
-### 🔌 Socket Programming
+1) Added text files for GNS3 Lab works with proper steps
+2) ### 🔌 Socket Programming
 
 | Program         | Description                         |
 |----------------|-------------------------------------|
